@@ -1,0 +1,64 @@
+body{
+    /*background: url(img/mainPageBackground.png);*/
+}
+.centeredCircleBlock{
+    text-align: center;
+}
+.labelUnderCircle{
+    width: 220px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.bottomElements{
+    margin-top: 20px;
+}
+
+.linkToMainPage{
+    color: white !important;
+    float: left;
+    vertical-align: middle;
+    padding-top: 20px;
+}
+
+.linkToMainPage:hover{
+    color: goldenrod !important;
+}
+
+.centerLineProperty{
+    margin-top: 5px;
+}
+
+.linkToAccount{
+    color: white !important;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    float: right;
+    vertical-align: middle;
+}
+
+.content
+{
+    margin-top : 60px;
+}
+
+.linkToAccount:hover{
+    color: goldenrod !important;
+}
+
+.topLine
+{
+    height: 60px;
+}
+
+.imageInRowNews
+{
+    padding: 0px;
+    margin: 15px;
+}
+
+.textInRowNews
+{
+    padding: 0px;
+    margin: 15px;
+}
