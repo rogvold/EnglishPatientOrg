@@ -53,12 +53,15 @@ body{
 
 .imageInRowNews
 {
-    padding: 0px;
+    padding: 10px;
     margin: 15px;
 }
 
 .textInRowNews
 {
     padding: 0px;
-    margin: 15px;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-top: 0px;
 }
