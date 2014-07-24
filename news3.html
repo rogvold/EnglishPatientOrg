@@ -27,7 +27,17 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand linkToMainPage" href="home.html">The English Patient</a>
-            <a class="navbar-brand linkToAccount" href="account.html"> Jack Smith <img src="img\avatar.jpg" style="width: 50px; height: 50px;" /> </a>
+            <div class="btn-group linkToAccount">
+                <button type="button" class="btn btn-default dropdown-toggle" style="padding-top: 3px; padding-bottom: 3px;" data-toggle="dropdown">
+                    Jack Smith
+                    <img src="img\avatar.jpg" style="width: 30px; height: 30px;" />
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="account.html">Профиль</a></li>
+                    <li><a href="#">Выйти</a></li>
+                </ul>
+            </div>
         </div>
 
      <!--   <div class="navbar-collapse collapse">
