@@ -14,14 +14,47 @@
     <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
 
     <script>
-        function pressAnyKey() {
+        function parseLogin() {
             Parse.initialize("NcchMM3eEr6cWtTF9r8RqTNnMJ4Ci69T0WCJyI1q", "GtgwC2372eCZ1XGQsiPQEnuPF9zuSuz3U8miY3JD");
-            var TestObject = Parse.Object.extend("TestObject");
-            var testObject = new TestObject();
-            testObject.save({foo: "bar"}).then(function(object) {
-                alert("yay! it worked");
+        }
+        function pressSubmitKey() {
+            var VideoTest = Parse.Object.extend("VideoTest");
+            var videoTest = new VideoTest();
+            videoTest.set("linkToVimeo", link.value.toString());
+            videoTest.set("question", que.value.toString());
+            videoTest.set("answer", ans.value.toString());
+
+            videoTest.save(null, {
+                success: function(videoTest) {
+                    // Execute any logic that should take place after the object is saved.
+                    alert('New object created with objectId: ' + videoTest.id);
+                },
+                error: function(videoTest, error) {
+                    // Execute any logic that should take place if the save fails.
+                    // error is a Parse.Error with an error code and description.
+                    alert('Failed to create new object, with error code: ' + error.message);
+                }
             });
-            alert(link.value + " " + que.value + " " + ans.value);
+
+            alert("");
+        }
+        function pressGetData(id) {
+            var VideoTest = Parse.Object.extend("VideoTest");
+            var query = new Parse.Query(VideoTest);
+            query.get(id, {
+                success: function(videoTest) {
+                   // alert("success");
+                    var linkToVimeo = videoTest.get("linkToVimeo");
+                    var answer = videoTest.get("answer");
+                    var question = videoTest.get("question");
+                    alert("Ссылка: " + linkToVimeo + ", вопрос: " + answer + ", ответ: " + question);
+                },
+                error: function(object, error) {
+                   // alert("error");
+                }
+            });
+
+            alert("");
         }
     </script>
 
@@ -29,6 +62,11 @@
 </head>
 
 <body>
+
+<script>
+    parseLogin();
+</script>
+
  <div class="navbar navbar-inverse navbar-fixed-top topLine" role="navigation">
     <div class="container">
         <div class="navbar-header" style = "width: 100%">
@@ -58,7 +96,18 @@
                 <br/>
                 <input type="text" id="ans" style="margin-top: 10px; width: 100%; border-radius: 15px" class="form-control" placeholder="Answer">
                 <br/>
-                <button type="submit" onclick="pressAnyKey()" style="margin-top: 10px; margin-bottom: 10px; width: 100%; border-radius: 15px" class="btn btn-default">Submit</button>
+                <button type="submit" onclick="pressSubmitKey()" style="margin-top: 10px; margin-bottom: 10px; width: 100%; border-radius: 15px" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+    <hr/>
+    <div class="row">
+        <form class="navbar-form" style="text-align: center;">
+            <div class="form-group">
+                <input type="text" id="videoId" style="margin-top: 10px; width: 100%; border-radius: 15px" class="form-control" placeholder="Object id">
+                <br/>
+                <button type="submit" onclick="pressGetData(videoId.value.toString())" style="margin-top: 10px; margin-bottom: 10px; width: 100%; border-radius: 15px" class="btn btn-default">Download</button>
+                <br/>
             </div>
         </form>
     </div>
